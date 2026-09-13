@@ -1,6 +1,6 @@
 ---
 import BaseLayout from '../layouts/BaseLayout.astro';
-import { CONTACT_EMAIL } from '../lib/site';
+import { CONTACT_LINK, CONTACT_LABEL } from '../lib/site';
 ---
 
 <BaseLayout
@@ -16,7 +16,7 @@ import { CONTACT_EMAIL } from '../lib/site';
         that has to fit your exact workflow (Custom). We'll reply with
         which track fits and what we'd need to scope it properly.
       </p>
-      <a class="btn btn-primary" href={`mailto:${CONTACT_EMAIL}`}>{CONTACT_EMAIL}</a>
+      <a class="btn btn-primary" href={CONTACT_LINK} target="_blank" rel="noopener">{CONTACT_LABEL}</a>
     </div>
   </section>
 </BaseLayout>

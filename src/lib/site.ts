@@ -17,9 +17,12 @@ export function withBase(path: string): string {
   return clean ? `${base}${clean}` : base;
 }
 
-// Placeholder until kimudev.io is purchased and has a real inbox — swap
-// this once one exists (see DOMAIN_SWAP.md).
-export const CONTACT_EMAIL = 'hello@kimudev.io';
+// No confirmed domain yet (kimudev.io is a target, not a lock), so there's
+// no real inbox to point to. Telegram is the one channel the team behind
+// this already actually uses and checks — swap this for a real KimuDev
+// email once a domain is settled and an inbox exists.
+export const CONTACT_LINK = 'https://t.me/TeredaTrades';
+export const CONTACT_LABEL = 'Message us on Telegram';
 
 export const NAV_LINKS = [
   { label: 'Work', href: 'work/' },

@@ -46,12 +46,7 @@ const year = new Date().getFullYear();
 
     <footer class="site-footer">
       <div class="wrap footer-inner">
-        <p>&copy; {year} KimuDev. Part of Mekridian.</p>
-        <nav aria-label="Footer">
-          {NAV_LINKS.map((link) => (
-            <a href={withBase(link.href)}>{link.label}</a>
-          ))}
-        </nav>
+        <p>&copy; {year} KimuDev.</p>
       </div>
     </footer>
 
@@ -74,32 +69,22 @@ const year = new Date().getFullYear();
         text-decoration: none;
         letter-spacing: 0.01em;
       }
-      .site-header nav,
-      .site-footer nav {
+      .site-header nav {
         display: flex;
         gap: 1.5rem;
         flex-wrap: wrap;
       }
-      .site-header nav a,
-      .site-footer nav a {
+      .site-header nav a {
         text-decoration: none;
         font-size: 0.95rem;
         color: var(--text-muted);
       }
-      .site-header nav a:hover,
-      .site-footer nav a:hover {
+      .site-header nav a:hover {
         color: var(--text);
       }
       .site-footer {
         border-top: 1px solid var(--line);
         padding: 2.5rem 0 3rem;
-      }
-      .footer-inner {
-        display: flex;
-        align-items: center;
-        justify-content: space-between;
-        gap: 1.5rem;
-        flex-wrap: wrap;
       }
       .footer-inner p {
         margin: 0;
