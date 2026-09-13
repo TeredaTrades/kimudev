@@ -1,0 +1,105 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import { withBase } from '../lib/site';
+
+const work = [
+  {
+    name: 'Bejirond (በጅሮንድ)',
+    track: 'Custom build',
+    blurb: "An offline-first expense manager for people running more than one business — books, entries, and light team roles, translated into seven languages (English, Amharic, Oromo, Tigrinya, French, Arabic, Swahili).",
+    href: withBase('https://teredatrades.github.io/Bejirond/'),
+    tint: '#4d3a2a',
+  },
+  {
+    name: 'Money Matters Daily',
+    track: 'Custom build',
+    blurb: 'A personal-finance publication covering budgeting, credit, and investing basics, with its own editorial pipeline.',
+    href: 'https://moneymattersdaily.money/',
+    tint: '#2f4a3f',
+  },
+  {
+    name: 'TeredaTrades',
+    track: 'Custom build',
+    blurb: 'Trading education and market tools, including a live economic-calendar dashboard and educational articles.',
+    href: 'https://teredatrades.com/',
+    tint: '#2c3a4a',
+  },
+  {
+    name: "Aman's Travels",
+    track: 'Starter',
+    blurb: 'A travel site built around real trip footage and photography instead of stock imagery.',
+    href: withBase('https://teredatrades.github.io/Amanstravels/'),
+    tint: '#4a3040',
+  },
+];
+---
+
+<BaseLayout
+  title="Work"
+  description="Products built by KimuDev — a multilingual expense manager, a personal-finance publication, a trading-education site, and a travel site."
+>
+  <section class="section page-hero">
+    <div class="wrap">
+      <h1>Work</h1>
+      <p class="lede">Products we've built and still maintain — not mockups.</p>
+    </div>
+  </section>
+
+  <section class="section work-section">
+    <div class="wrap">
+      <ul class="work-list">
+        {work.map((item) => (
+          <li>
+            <a class="work-row" href={item.href} target="_blank" rel="noopener">
+              <span class="work-swatch" style={`background:${item.tint}`} aria-hidden="true"></span>
+              <span class="work-text">
+                <span class="work-top">
+                  <span class="work-name">{item.name}</span>
+                  <span class="work-track">{item.track}</span>
+                </span>
+                <span class="work-blurb">{item.blurb}</span>
+              </span>
+            </a>
+          </li>
+        ))}
+      </ul>
+    </div>
+  </section>
+
+  <style>
+    .page-hero { padding-bottom: 1rem; }
+    .work-list {
+      list-style: none;
+      margin: 0;
+      padding: 0;
+      border-top: 1px solid var(--line);
+    }
+    .work-row {
+      display: flex;
+      align-items: flex-start;
+      gap: 1.5rem;
+      padding: 1.75rem 0;
+      border-bottom: 1px solid var(--line);
+      text-decoration: none;
+    }
+    .work-swatch {
+      width: 3.5rem;
+      height: 3.5rem;
+      border-radius: 3px;
+      flex-shrink: 0;
+      margin-top: 0.15rem;
+    }
+    .work-text { display: flex; flex-direction: column; gap: 0.4rem; max-width: 60ch; }
+    .work-top { display: flex; align-items: baseline; gap: 0.75rem; flex-wrap: wrap; }
+    .work-name { font-family: var(--font-display); font-size: 1.3rem; }
+    .work-track {
+      font-size: 0.8rem;
+      color: var(--steel);
+      border: 1px solid var(--line);
+      border-radius: 3px;
+      padding: 0.1em 0.55em;
+    }
+    .work-blurb { color: var(--text-muted); }
+    .work-row:hover .work-name { color: var(--ember-bright); }
+  </style>
+</BaseLayout>

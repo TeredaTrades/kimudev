@@ -1,0 +1,65 @@
+---
+// Abstract angular mark for the hero — a bent line meeting a short
+// crossing line, with two accent strokes off the joint. This is the one
+// deliberate motion moment on the site: the main line draws itself in
+// once on load, then settles. Everything else on the page is static.
+---
+
+<svg
+  class="brand-mark"
+  viewBox="0 0 420 420"
+  role="img"
+  aria-label="An abstract angular mark, two connected lines meeting at a point"
+  xmlns="http://www.w3.org/2000/svg"
+>
+  <path
+    class="bar"
+    d="M60 340 L170 210 L150 190 L300 90"
+    fill="none"
+    stroke="var(--text)"
+    stroke-width="10"
+    stroke-linecap="round"
+    stroke-linejoin="round"
+  />
+  <g class="accents" stroke="var(--ember-bright)" stroke-width="6" stroke-linecap="round">
+    <line x1="170" y1="205" x2="230" y2="175" />
+    <line x1="163" y1="195" x2="205" y2="245" />
+  </g>
+  <circle class="joint-point" cx="170" cy="205" r="7" fill="var(--ember)" />
+</svg>
+
+<style>
+  .brand-mark {
+    width: 100%;
+    height: auto;
+    overflow: visible;
+  }
+  .bar {
+    stroke-dasharray: 420;
+    stroke-dashoffset: 420;
+    animation: draw 1.1s 0.15s cubic-bezier(0.65, 0, 0.35, 1) forwards;
+  }
+  .accents line {
+    opacity: 0;
+    animation: flash 0.4s 1.05s ease-out forwards;
+  }
+  .joint-point {
+    opacity: 0;
+    animation: pop 0.3s 0.95s ease-out forwards;
+  }
+  @keyframes draw {
+    to { stroke-dashoffset: 0; }
+  }
+  @keyframes flash {
+    0% { opacity: 0; }
+    40% { opacity: 1; }
+    100% { opacity: 0.85; }
+  }
+  @keyframes pop {
+    to { opacity: 1; }
+  }
+  @media (prefers-reduced-motion: reduce) {
+    .bar { stroke-dashoffset: 0; animation: none; }
+    .accents line, .joint-point { opacity: 0.85; animation: none; }
+  }
+</style>

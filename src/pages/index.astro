@@ -1,0 +1,197 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import BrandMark from '../components/BrandMark.astro';
+import { withBase, CONTACT_EMAIL } from '../lib/site';
+
+const work = [
+  {
+    name: 'Bejirond (በጅሮንድ)',
+    blurb: 'An offline-first expense manager for people running more than one business, translated into seven languages.',
+    href: withBase('https://teredatrades.github.io/Bejirond/'),
+    tint: '#4d3a2a',
+  },
+  {
+    name: 'Money Matters Daily',
+    blurb: 'A personal-finance publication covering budgeting, credit, and investing basics.',
+    href: 'https://moneymattersdaily.money/',
+    tint: '#2f4a3f',
+  },
+  {
+    name: 'TeredaTrades',
+    blurb: 'Trading education and market tools, including a live economic-calendar dashboard.',
+    href: 'https://teredatrades.com/',
+    tint: '#2c3a4a',
+  },
+  {
+    name: "Aman's Travels",
+    blurb: 'A travel site built around real trip footage and photography instead of stock imagery.',
+    href: withBase('https://teredatrades.github.io/Amanstravels/'),
+    tint: '#4a3040',
+  },
+];
+---
+
+<BaseLayout
+  title="KimuDev — apps and websites, built to ship"
+  description="KimuDev builds websites and apps — a fast templated starter for a new business, or a fully custom build for something no template can cover."
+>
+  <section class="hero section">
+    <div class="wrap hero-grid">
+      <div class="hero-copy">
+        <h1>An app or website, built by people who'll actually finish it.</h1>
+        <p class="lede">
+          KimuDev builds and ships web and mobile products —
+          a fast, templated starter for a new business, or a fully
+          custom build for something no template can cover.
+        </p>
+        <div class="hero-actions">
+          <a class="btn btn-primary" href={`mailto:${CONTACT_EMAIL}`}>Start a project</a>
+          <a class="btn btn-quiet" href={withBase('work/')}>See our work</a>
+        </div>
+      </div>
+      <div class="hero-mark" aria-hidden="true">
+        <BrandMark />
+      </div>
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="wrap tracks-grid">
+      <div class="track track-starter">
+        <h2>Starter</h2>
+        <p class="lede">
+          A working site or app, built on a template we already trust
+          and fitted to your business — fast to ship, priced to make
+          sense for a business just getting off the ground.
+        </p>
+        <ul class="track-list">
+          <li>Your content, branding, and copy — not a placeholder theme</li>
+          <li>Live in a matter of weeks, not months</li>
+          <li>Right for a first website, a simple ordering/booking flow, or an MVP to test an idea</li>
+        </ul>
+      </div>
+      <div class="track track-custom">
+        <h2>Custom build</h2>
+        <p>
+          When a template won't hold what you actually need — your
+          own workflow, your own data model, something nobody else
+          has built — we scope it properly and build it from scratch.
+          It's the same track behind
+          <a href={withBase('https://teredatrades.github.io/Bejirond/')}>Bejirond</a>,
+          our multilingual expense manager, and the rest of the
+          product family in our <a href={withBase('work/')}>work</a>.
+        </p>
+        <p>
+          A custom build starts with a scoping conversation, not a
+          quote — so the plan matches what your business needs, not
+          a package that happens to be sitting on a shelf.
+        </p>
+      </div>
+    </div>
+    <p class="track-more"><a href={withBase('services/')}>More on how each track works &rarr;</a></p>
+  </section>
+
+  <section class="section">
+    <div class="wrap">
+      <h2>Selected work</h2>
+      <ul class="work-list">
+        {work.map((item) => (
+          <li>
+            <a class="work-row" href={item.href} target="_blank" rel="noopener">
+              <span class="work-swatch" style={`background:${item.tint}`} aria-hidden="true"></span>
+              <span class="work-text">
+                <span class="work-name">{item.name}</span>
+                <span class="work-blurb">{item.blurb}</span>
+              </span>
+            </a>
+          </li>
+        ))}
+      </ul>
+    </div>
+  </section>
+
+  <section class="section cta-section">
+    <div class="wrap cta-inner">
+      <h2>Have something worth building?</h2>
+      <p class="lede">Tell us what it is, and we'll tell you honestly which track it needs.</p>
+      <a class="btn btn-primary" href={`mailto:${CONTACT_EMAIL}`}>{CONTACT_EMAIL}</a>
+    </div>
+  </section>
+
+  <style>
+    .hero-grid {
+      display: grid;
+      grid-template-columns: 1.3fr 1fr;
+      gap: clamp(2rem, 5vw, 4rem);
+      align-items: center;
+    }
+    .hero-actions {
+      display: flex;
+      gap: 1rem;
+      margin-top: 1.75rem;
+      flex-wrap: wrap;
+    }
+    .hero-mark {
+      max-width: 320px;
+      justify-self: end;
+    }
+    @media (max-width: 780px) {
+      .hero-grid { grid-template-columns: 1fr; }
+      .hero-mark { max-width: 220px; justify-self: start; margin-top: 1rem; }
+    }
+
+    .tracks-grid {
+      display: grid;
+      grid-template-columns: 0.85fr 1.15fr;
+      gap: clamp(2rem, 5vw, 4rem);
+      align-items: start;
+    }
+    .track-starter {
+      background: var(--surface);
+      border: 1px solid var(--line);
+      border-radius: 4px;
+      padding: clamp(1.5rem, 3vw, 2.25rem);
+    }
+    .track-list {
+      margin: 1.25rem 0 0;
+      padding-left: 1.1em;
+      color: var(--text-muted);
+    }
+    .track-list li { margin-bottom: 0.6em; }
+    .track-custom { padding-top: 0.25rem; }
+    .track-custom p:first-of-type { max-width: 52ch; }
+    .track-more { margin-top: 2.25rem; }
+    .track-more a { text-decoration: none; color: var(--ember-bright); font-weight: 600; }
+    @media (max-width: 780px) {
+      .tracks-grid { grid-template-columns: 1fr; }
+    }
+
+    .work-list {
+      list-style: none;
+      margin: 1.75rem 0 0;
+      padding: 0;
+      border-top: 1px solid var(--line);
+    }
+    .work-row {
+      display: flex;
+      align-items: center;
+      gap: 1.25rem;
+      padding: 1.35rem 0;
+      border-bottom: 1px solid var(--line);
+      text-decoration: none;
+    }
+    .work-swatch {
+      width: 3rem;
+      height: 3rem;
+      border-radius: 3px;
+      flex-shrink: 0;
+    }
+    .work-text { display: flex; flex-direction: column; gap: 0.15rem; }
+    .work-name { font-family: var(--font-display); font-size: 1.15rem; }
+    .work-blurb { color: var(--text-muted); font-size: 0.95rem; }
+    .work-row:hover .work-name { color: var(--ember-bright); }
+
+    .cta-section { padding-bottom: clamp(4.5rem, 10vw, 8rem); }
+    .cta-inner .btn { margin-top: 0.5rem; }
+  </style>
+</BaseLayout>

@@ -1,0 +1,100 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import { withBase, CONTACT_EMAIL } from '../lib/site';
+---
+
+<BaseLayout
+  title="Services"
+  description="Two ways to work with KimuDev: a fast templated Starter build, or a fully custom build scoped around your business."
+>
+  <section class="section page-hero">
+    <div class="wrap">
+      <h1>Two ways to work with us</h1>
+      <p class="lede">
+        Most businesses need one of two things: something working
+        fast, or something built exactly around how they actually
+        operate. We don't force either one into the other's box.
+      </p>
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="wrap service-block">
+      <div class="service-heading">
+        <h2>Starter</h2>
+        <p class="service-for">For a first website, a booking/ordering flow, or an MVP to test an idea.</p>
+      </div>
+      <div class="service-body">
+        <p>
+          We start from a template we already trust — proven layout,
+          proven performance — and fit it to your business: your
+          content, your branding, your copy. Nothing about the result
+          looks or reads like a template once it's done.
+        </p>
+        <ul>
+          <li>A short intake conversation to scope pages and content</li>
+          <li>Your own branding, copy, and images throughout</li>
+          <li>Basic contact/booking flow if your business needs one</li>
+          <li>Live in a matter of weeks, not months</li>
+          <li>One round of revisions included before launch</li>
+        </ul>
+      </div>
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="wrap service-block">
+      <div class="service-heading">
+        <h2>Custom build</h2>
+        <p class="service-for">For a workflow, data model, or product that no template can hold.</p>
+      </div>
+      <div class="service-body">
+        <p>
+          This is a real build, not a configuration exercise. We scope
+          the actual problem first — what the business runs on, who
+          uses it, what has to be true for launch — before any code
+          gets written. It's the track behind
+          <a href={withBase('https://teredatrades.github.io/Bejirond/')}>Bejirond</a>,
+          our offline-first, seven-language expense manager, and the
+          rest of the work in our <a href={withBase('work/')}>portfolio</a>.
+        </p>
+        <ul>
+          <li>A scoping call before any commitment — free, no pressure</li>
+          <li>A written plan: what's being built, in what order, and why</li>
+          <li>Architecture decisions made upfront, not discovered mid-build</li>
+          <li>Support after launch, not a handoff-and-disappear</li>
+        </ul>
+      </div>
+    </div>
+  </section>
+
+  <section class="section cta-section">
+    <div class="wrap">
+      <h2>Not sure which one fits?</h2>
+      <p class="lede">That's a normal question to have before you've scoped anything — tell us what you're building and we'll tell you honestly.</p>
+      <a class="btn btn-primary" href={`mailto:${CONTACT_EMAIL}`}>{CONTACT_EMAIL}</a>
+    </div>
+  </section>
+
+  <style>
+    .page-hero { padding-bottom: 1rem; }
+    .service-block {
+      display: grid;
+      grid-template-columns: 0.85fr 1.15fr;
+      gap: clamp(2rem, 5vw, 4rem);
+      align-items: start;
+    }
+    .service-for { color: var(--text-muted); max-width: 32ch; }
+    .service-body ul {
+      margin: 1.25rem 0 0;
+      padding-left: 1.1em;
+      color: var(--text-muted);
+    }
+    .service-body li { margin-bottom: 0.6em; }
+    .service-body p { max-width: 56ch; }
+    @media (max-width: 780px) {
+      .service-block { grid-template-columns: 1fr; }
+    }
+    .cta-section { padding-bottom: clamp(4.5rem, 10vw, 8rem); }
+  </style>
+</BaseLayout>

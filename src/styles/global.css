@@ -1,0 +1,126 @@
+/* ============================================================
+   Design tokens
+   ------------------------------------------------------------
+   Palette reads as "the forge" — warm dark charcoal, an ember/
+   copper accent for anything active or emphasized, and a cool
+   steel tone used sparingly for anything explicitly technical
+   (code, stack labels). Deliberately not a bright vermilion or
+   acid-green single-accent scheme, and not a cream/serif combo —
+   this is its own thing.
+   ============================================================ */
+:root {
+  --bg: #16140f;
+  --surface: #211d16;
+  --surface-2: #2a251c;
+  --line: #3c3527;
+  --text: #efe7d6;
+  --text-muted: #a89b83;
+  --ember: #b5651d;
+  --ember-bright: #d67d34;
+  --steel: #7c8b94;
+
+  --font-display: 'Fraunces', Georgia, serif;
+  --font-body: 'IBM Plex Sans', -apple-system, Helvetica, Arial, sans-serif;
+
+  --measure: 62ch;
+}
+
+* { box-sizing: border-box; }
+
+html {
+  background: var(--bg);
+  color-scheme: dark;
+}
+
+body {
+  margin: 0;
+  background: var(--bg);
+  color: var(--text);
+  font-family: var(--font-body);
+  font-size: 1.0625rem;
+  line-height: 1.6;
+  -webkit-font-smoothing: antialiased;
+}
+
+img, svg { max-width: 100%; display: block; }
+
+a {
+  color: inherit;
+  text-decoration-color: var(--ember);
+  text-underline-offset: 0.2em;
+}
+
+a:hover { text-decoration-color: var(--ember-bright); }
+
+:focus-visible {
+  outline: 2px solid var(--ember-bright);
+  outline-offset: 3px;
+}
+
+h1, h2, h3 {
+  font-family: var(--font-display);
+  font-weight: 600;
+  line-height: 1.15;
+  margin: 0 0 0.5em;
+  color: var(--text);
+}
+
+h1 { font-size: clamp(2.5rem, 5vw + 1rem, 4.25rem); font-weight: 500; }
+h2 { font-size: clamp(1.75rem, 2.6vw + 1rem, 2.5rem); }
+h3 { font-size: 1.3rem; }
+
+p { margin: 0 0 1.1em; max-width: var(--measure); color: var(--text); }
+p.lede { font-size: 1.2rem; color: var(--text-muted); max-width: 46ch; }
+
+.wrap {
+  max-width: 74rem;
+  margin: 0 auto;
+  padding: 0 clamp(1.25rem, 4vw, 3rem);
+}
+
+.section {
+  padding: clamp(3.5rem, 8vw, 6.5rem) 0;
+  border-top: 1px solid var(--line);
+}
+
+.section:first-of-type { border-top: none; }
+
+.hairline { border-top: 1px solid var(--line); }
+
+.btn {
+  display: inline-block;
+  font-family: var(--font-body);
+  font-weight: 600;
+  font-size: 0.95rem;
+  padding: 0.75em 1.4em;
+  border-radius: 3px;
+  text-decoration: none;
+  border: 1px solid transparent;
+}
+
+.btn-primary {
+  background: var(--ember);
+  color: #16140f;
+}
+.btn-primary:hover { background: var(--ember-bright); }
+
+.btn-quiet {
+  border-color: var(--line);
+  color: var(--text);
+}
+.btn-quiet:hover { border-color: var(--text-muted); }
+
+code, .tag {
+  font-family: ui-monospace, 'SFMono-Regular', Menlo, monospace;
+  font-size: 0.85em;
+  color: var(--steel);
+}
+
+::selection {
+  background: var(--ember);
+  color: #16140f;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  * { animation-duration: 0.01ms !important; animation-iteration-count: 1 !important; transition-duration: 0.01ms !important; }
+}

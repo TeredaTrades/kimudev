@@ -1,0 +1,111 @@
+---
+import '../styles/global.css';
+import { withBase, NAV_LINKS } from '../lib/site';
+
+interface Props {
+  title: string;
+  description: string;
+}
+
+const { title, description } = Astro.props;
+const year = new Date().getFullYear();
+---
+
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <link rel="icon" href={withBase('favicon.svg')} type="image/svg+xml" />
+    <title>{title} · KimuDev</title>
+    <meta name="description" content={description} />
+    <link rel="canonical" href={Astro.url.href} />
+
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,400;9..144,500;9..144,600&family=IBM+Plex+Sans:wght@400;500;600;700&display=swap"
+      rel="stylesheet"
+    />
+  </head>
+  <body>
+    <header class="site-header">
+      <div class="wrap header-inner">
+        <a class="wordmark" href={withBase('/')}>KimuDev</a>
+        <nav aria-label="Primary">
+          {NAV_LINKS.map((link) => (
+            <a href={withBase(link.href)}>{link.label}</a>
+          ))}
+        </nav>
+      </div>
+    </header>
+
+    <main>
+      <slot />
+    </main>
+
+    <footer class="site-footer">
+      <div class="wrap footer-inner">
+        <p>&copy; {year} KimuDev. Part of Mekridian.</p>
+        <nav aria-label="Footer">
+          {NAV_LINKS.map((link) => (
+            <a href={withBase(link.href)}>{link.label}</a>
+          ))}
+        </nav>
+      </div>
+    </footer>
+
+    <style>
+      .site-header {
+        border-bottom: 1px solid var(--line);
+      }
+      .header-inner {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        gap: 1.5rem;
+        padding: 1.35rem clamp(1.25rem, 4vw, 3rem);
+        flex-wrap: wrap;
+      }
+      .wordmark {
+        font-family: var(--font-display);
+        font-size: 1.25rem;
+        font-weight: 600;
+        text-decoration: none;
+        letter-spacing: 0.01em;
+      }
+      .site-header nav,
+      .site-footer nav {
+        display: flex;
+        gap: 1.5rem;
+        flex-wrap: wrap;
+      }
+      .site-header nav a,
+      .site-footer nav a {
+        text-decoration: none;
+        font-size: 0.95rem;
+        color: var(--text-muted);
+      }
+      .site-header nav a:hover,
+      .site-footer nav a:hover {
+        color: var(--text);
+      }
+      .site-footer {
+        border-top: 1px solid var(--line);
+        padding: 2.5rem 0 3rem;
+      }
+      .footer-inner {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        gap: 1.5rem;
+        flex-wrap: wrap;
+      }
+      .footer-inner p {
+        margin: 0;
+        color: var(--text-muted);
+        font-size: 0.9rem;
+      }
+    </style>
+  </body>
+</html>
