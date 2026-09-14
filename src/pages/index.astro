@@ -33,16 +33,17 @@ const work = [
 
 <BaseLayout
   title="KimuDev — apps and websites, built to ship"
-  description="KimuDev builds websites and apps — a fast templated starter for a new business, or a fully custom build for something no template can cover."
+  description="KimuDev builds websites, apps, mini apps, PWAs, and environment-specific scripts — and maintains, fixes, and reorganizes existing ones too."
 >
   <section class="hero section">
     <div class="wrap hero-grid">
       <div class="hero-copy">
         <h1>An app or website, built by people who'll actually finish it.</h1>
         <p class="lede">
-          KimuDev builds and ships web and mobile products —
-          a fast, templated starter for a new business, or a fully
-          custom build for something no template can cover.
+          KimuDev builds and ships websites, apps, mini apps, PWAs,
+          and environment-specific scripts — and keeps them running
+          after launch: fixes, maintenance, and reorganizing things
+          that already exist, not just new builds.
         </p>
         <div class="hero-actions">
           <a class="btn btn-primary" href={CONTACT_LINK} target="_blank" rel="noopener">Start a project</a>
@@ -74,9 +75,9 @@ const work = [
         <h2>Custom build</h2>
         <p>
           When a template won't hold what you actually need — your
-          own workflow, your own data model, something nobody else
-          has built — we scope it properly and build it from scratch.
-          It's the same track behind
+          own workflow, a mini app, a PWA, a script built for one
+          specific environment — we scope it properly and build it
+          from scratch. It's the same track behind
           <a href={withBase('https://teredatrades.github.io/Bejirond/')}>Bejirond</a>,
           our multilingual expense manager, and the rest of the
           product family in our <a href={withBase('work/')}>work</a>.
@@ -88,7 +89,11 @@ const work = [
         </p>
       </div>
     </div>
-    <p class="track-more"><a href={withBase('services/')}>More on how each track works &rarr;</a></p>
+    <p class="track-more">
+      Already have something live that needs fixing, maintaining, or
+      reorganizing instead of rebuilding? We do that too —
+      <a href={withBase('services/')}>see how &rarr;</a>
+    </p>
   </section>
 
   <section class="section">

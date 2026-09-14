@@ -5,15 +5,16 @@ import { withBase, CONTACT_LINK, CONTACT_LABEL } from '../lib/site';
 
 <BaseLayout
   title="Services"
-  description="Two ways to work with KimuDev: a fast templated Starter build, or a fully custom build scoped around your business."
+  description="Three ways to work with KimuDev: a fast templated Starter build, a fully custom build (sites, apps, mini apps, PWAs, scripts), or maintenance and fixes on something that already exists."
 >
   <section class="section page-hero">
     <div class="wrap">
-      <h1>Two ways to work with us</h1>
+      <h1>Three ways to work with us</h1>
       <p class="lede">
-        Most businesses need one of two things: something working
-        fast, or something built exactly around how they actually
-        operate. We don't force either one into the other's box.
+        Most projects need one of three things: something working
+        fast, something built exactly around how you operate, or
+        someone to keep an existing site or app actually running.
+        We don't force any of those into the others' box.
       </p>
     </div>
   </section>
@@ -46,14 +47,14 @@ import { withBase, CONTACT_LINK, CONTACT_LABEL } from '../lib/site';
     <div class="wrap service-block">
       <div class="service-heading">
         <h2>Custom build</h2>
-        <p class="service-for">For a workflow, data model, or product that no template can hold.</p>
+        <p class="service-for">Sites, apps, mini apps, PWAs, or scripts built for one specific job.</p>
       </div>
       <div class="service-body">
         <p>
           This is a real build, not a configuration exercise. We scope
-          the actual problem first — what the business runs on, who
-          uses it, what has to be true for launch — before any code
-          gets written. It's the track behind
+          the actual problem first — what it runs on, who uses it,
+          what has to be true for launch — before any code gets
+          written. It's the track behind
           <a href={withBase('https://teredatrades.github.io/Bejirond/')}>Bejirond</a>,
           our offline-first, seven-language expense manager, and the
           rest of the work in our <a href={withBase('work/')}>portfolio</a>.
@@ -61,8 +62,34 @@ import { withBase, CONTACT_LINK, CONTACT_LABEL } from '../lib/site';
         <ul>
           <li>A scoping call before any commitment — free, no pressure</li>
           <li>A written plan: what's being built, in what order, and why</li>
+          <li>Covers full apps and sites as well as smaller scope: a mini app, a PWA, or a script built for one specific environment or task</li>
           <li>Architecture decisions made upfront, not discovered mid-build</li>
           <li>Support after launch, not a handoff-and-disappear</li>
+        </ul>
+      </div>
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="wrap service-block">
+      <div class="service-heading">
+        <h2>Maintenance &amp; fixes</h2>
+        <p class="service-for">For a site or app that already exists — yours or someone else's build.</p>
+      </div>
+      <div class="service-body">
+        <p>
+          Not everything needs a rebuild. Sometimes a site just needs
+          something fixed, an app needs a feature added without
+          breaking what already works, or an old codebase needs
+          reorganizing before anyone can safely touch it again. We
+          take that on too — on projects we built, and on ones we
+          didn't.
+        </p>
+        <ul>
+          <li>Bug fixes and small feature additions to a live site or app</li>
+          <li>Reorganizing or cleaning up an existing codebase</li>
+          <li>Ongoing maintenance so a project doesn't quietly rot after launch</li>
+          <li>Honest scoping if the real answer turns out to be a rebuild</li>
         </ul>
       </div>
     </div>
