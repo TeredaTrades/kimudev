@@ -1,6 +1,6 @@
 ---
 import BaseLayout from '../layouts/BaseLayout.astro';
-import BrandMark from '../components/BrandMark.astro';
+import CodeReveal from '../components/CodeReveal.astro';
 import { withBase, CONTACT_LINK, CONTACT_LABEL } from '../lib/site';
 
 const work = [
@@ -36,23 +36,24 @@ const work = [
   description="KimuDev builds websites, apps, mini apps, PWAs, and environment-specific scripts — and maintains, fixes, and reorganizes existing ones too."
 >
   <section class="hero section">
-    <div class="wrap hero-grid">
-      <div class="hero-copy">
-        <h1>An app or website, built by people who'll actually finish it.</h1>
-        <p class="lede">
-          KimuDev builds and ships websites, apps, mini apps, PWAs,
-          and environment-specific scripts — and keeps them running
-          after launch: fixes, maintenance, and reorganizing things
-          that already exist, not just new builds.
-        </p>
-        <div class="hero-actions">
-          <a class="btn btn-primary" href={CONTACT_LINK} target="_blank" rel="noopener">Start a project</a>
-          <a class="btn btn-quiet" href={withBase('work/')}>See our work</a>
-        </div>
+    <div class="wrap hero-copy">
+      <h1>An app or website, built by people who'll actually finish it.</h1>
+      <p class="lede">
+        KimuDev builds and ships websites, apps, mini apps, PWAs,
+        and environment-specific scripts — and keeps them running
+        after launch: fixes, maintenance, and reorganizing things
+        that already exist, not just new builds.
+      </p>
+      <div class="hero-actions">
+        <a class="btn btn-primary" href={CONTACT_LINK} target="_blank" rel="noopener">Start a project</a>
+        <a class="btn btn-quiet" href={withBase('work/')}>See our work</a>
       </div>
-      <div class="hero-mark" aria-hidden="true">
-        <BrandMark />
-      </div>
+    </div>
+  </section>
+
+  <section class="section reveal-section">
+    <div class="wrap">
+      <CodeReveal />
     </div>
   </section>
 
@@ -124,11 +125,8 @@ const work = [
   </section>
 
   <style>
-    .hero-grid {
-      display: grid;
-      grid-template-columns: 1.3fr 1fr;
-      gap: clamp(2rem, 5vw, 4rem);
-      align-items: center;
+    .hero-copy .lede {
+      max-width: 56ch;
     }
     .hero-actions {
       display: flex;
@@ -136,13 +134,8 @@ const work = [
       margin-top: 1.75rem;
       flex-wrap: wrap;
     }
-    .hero-mark {
-      max-width: 320px;
-      justify-self: end;
-    }
-    @media (max-width: 780px) {
-      .hero-grid { grid-template-columns: 1fr; }
-      .hero-mark { max-width: 220px; justify-self: start; margin-top: 1rem; }
+    .reveal-section {
+      padding-top: clamp(1rem, 3vw, 2rem);
     }
 
     .tracks-grid {

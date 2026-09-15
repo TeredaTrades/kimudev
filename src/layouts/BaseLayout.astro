@@ -92,5 +92,50 @@ const year = new Date().getFullYear();
         font-size: 0.9rem;
       }
     </style>
+
+    <script>
+      const SCRAMBLE_GLYPHS = '01ABCDEFGHIJKLMNOPQRSTUVWXYZ$%#@!<>/\\{}[]*+-';
+
+      function scrambleEl(el) {
+        if (el.dataset.scrambling === '1') return;
+        const original = el.textContent || '';
+        if (!original.trim()) return;
+        el.dataset.scrambling = '1';
+        const len = original.length;
+        const totalFrames = Math.min(50, Math.max(12, Math.floor(len * 0.8)));
+        let frame = 0;
+        const timer = setInterval(() => {
+          frame++;
+          const revealCount = Math.floor((frame / totalFrames) * len);
+          let out = '';
+          for (let i = 0; i < len; i++) {
+            if (original[i] === ' ') {
+              out += ' ';
+            } else if (i < revealCount) {
+              out += original[i];
+            } else {
+              out += SCRAMBLE_GLYPHS[(Math.random() * SCRAMBLE_GLYPHS.length) | 0];
+            }
+          }
+          el.textContent = out;
+          if (frame >= totalFrames) {
+            el.textContent = original;
+            clearInterval(timer);
+            el.dataset.scrambling = '0';
+          }
+        }, 35);
+      }
+
+      function initScramble() {
+        const reduced = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+        if (reduced) return;
+        const targets = document.querySelectorAll('.wordmark, .site-header nav a, main h1');
+        targets.forEach((el) => {
+          el.addEventListener('mouseenter', () => scrambleEl(el));
+        });
+      }
+
+      document.addEventListener('DOMContentLoaded', initScramble);
+    </script>
   </body>
 </html>
