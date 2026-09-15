@@ -35,6 +35,12 @@ const work = [
   title="KimuDev — apps and websites, built to ship"
   description="KimuDev builds websites, apps, mini apps, PWAs, and environment-specific scripts — and maintains, fixes, and reorganizes existing ones too."
 >
+  <section class="section reveal-section">
+    <div class="wrap">
+      <CodeReveal />
+    </div>
+  </section>
+
   <section class="hero section">
     <div class="wrap hero-copy">
       <h1>An app or website, built by people who'll actually finish it.</h1>
@@ -48,12 +54,6 @@ const work = [
         <a class="btn btn-primary" href={CONTACT_LINK} target="_blank" rel="noopener">Start a project</a>
         <a class="btn btn-quiet" href={withBase('work/')}>See our work</a>
       </div>
-    </div>
-  </section>
-
-  <section class="section reveal-section">
-    <div class="wrap">
-      <CodeReveal />
     </div>
   </section>
 
@@ -134,8 +134,8 @@ const work = [
       margin-top: 1.75rem;
       flex-wrap: wrap;
     }
-    .reveal-section {
-      padding-top: clamp(1rem, 3vw, 2rem);
+    .reveal-section:first-of-type {
+      padding-bottom: clamp(2rem, 4vw, 3rem);
     }
 
     .tracks-grid {
